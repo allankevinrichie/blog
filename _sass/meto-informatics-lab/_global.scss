@@ -230,8 +230,11 @@ header {
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 25c6d7887c6675c82a7c2161e19029a3ac010f39
 .blog-top-header {
   position: absolute;
   margin-top: 0;
@@ -241,7 +244,10 @@ header {
     }
   }
 }
+<<<<<<< HEAD
 >>>>>>> darken blog headers
+=======
+>>>>>>> 25c6d7887c6675c82a7c2161e19029a3ac010f39
 .blog-header {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -256,10 +262,23 @@ header {
     margin: 0 20px;
     padding: 2px 0px;
     color: white;
+<<<<<<< HEAD
+  }
+  a {
+    color: white;
+=======
+>>>>>>> 25c6d7887c6675c82a7c2161e19029a3ac010f39
   }
   a {
     color: white;
   }
+}
+
+.tint {
+  display: block;
+  width: 100vw;
+  height: 250px;
+  background: rgba(0,0,0, 1);
 }
 
 .tint {
