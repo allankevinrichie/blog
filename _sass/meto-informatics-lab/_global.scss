@@ -8,6 +8,7 @@ body {
   overflow-x: hidden;
   @include body-font;
   font-size: 16px;
+  background-color: $gray-lighter;
 }
 
 .text-muted {
@@ -170,11 +171,10 @@ headerbkg {
 header {
   opacity: 1;
   width: 100%;
-  height: 100%;
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
-  margin-top: 10px;
+  margin-top: 80px;
   @include background-cover;
   text-align: center;
   color: white;
@@ -192,7 +192,7 @@ header {
       font-weight: 700;
       font-size: 30px;
       line-height: 30px;
-      color: white;
+      color: black;
       display: inline-block;
       padding: 0 10px;
       opacity: 1;
@@ -233,6 +233,12 @@ header {
 }
 .blog-top-header {
   position: absolute;
+  margin-top: 0;
+  .intro-text {
+    .intro-heading {
+      color: white;
+    }
+  }
 }
 .blog-header {
   background-image: url($header-blog);
@@ -246,9 +252,10 @@ header {
   span {
     margin: 0 20px;
     padding: 2px 0px;
-    background: $mo-dark-grey;
-    color: $brand-primary;
-    box-shadow: 5px 0 0 $mo-dark-grey, -5px 0 0 $mo-dark-grey;
+    color: white;
+  }
+  a {
+    color: white;
   }
 }
 
@@ -262,7 +269,6 @@ header {
 @media(min-width:768px) {
   
   header {
-    margin-top: 30px;
     .intro-text {
       padding-top: 0px;
       padding-bottom: 0px;
@@ -300,9 +306,7 @@ header {
     span {
       margin: 0 20px;
       padding: 2px 0px;
-      background: $mo-dark-grey;
-      color: $brand-primary;
-      box-shadow: 5px 0 0 $mo-dark-grey, -5px 0 0 $mo-dark-grey;
+      color: white;
     }
   }
   .tint {
