@@ -1,5 +1,9 @@
 // Global Components
 
+html {
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
   @include body-font;
@@ -151,7 +155,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+headerbkg {
+  position: absolute;
+  width: 100%;
+  height: 240px;
+  opacity: 0.3;
+  background-repeat: none;
+  background-attachment: scroll;
+  background-position: center center;
+  margin-top: 10px;
+  @include background-cover;
+}
+
 header {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
@@ -173,10 +192,10 @@ header {
       font-weight: 700;
       font-size: 30px;
       line-height: 30px;
-      color: $gray-darkest;
+      color: white;
       display: inline-block;
-      background-color: white;
       padding: 0 10px;
+      opacity: 1;
     }
     .intro-heading::after { content:"\A"; display:block; }
     .btn {
@@ -212,6 +231,9 @@ header {
     margin-bottom: 100px;
   }
 }
+.blog-top-header {
+  position: absolute;
+}
 .blog-header {
   background-image: url($header-blog);
 }
@@ -230,9 +252,17 @@ header {
   }
 }
 
+.tint {
+  display: block;
+  width: 100vw;
+  height: 250px;
+  background: rgba(0,0,0, 1);
+}
+
 @media(min-width:768px) {
+  
   header {
-    margin-top: 80px;
+    margin-top: 30px;
     .intro-text {
       padding-top: 0px;
       padding-bottom: 0px;
@@ -274,6 +304,9 @@ header {
       color: $brand-primary;
       box-shadow: 5px 0 0 $mo-dark-grey, -5px 0 0 $mo-dark-grey;
     }
+  }
+  .tint {
+    margin-top: 50px;
   }
 }
 
