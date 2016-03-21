@@ -1,8 +1,14 @@
 // Global Components
 
+html {
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
   @include body-font;
+  font-size: 16px;
+  background-color: $gray-lighter;
 }
 
 .text-muted {
@@ -14,18 +20,16 @@ body {
 }
 
 p {
-  font-size: 14px;
-  line-height: 1.75;
 }
 
 p.large {
-  font-size: 16px;
+  font-size: 22px;
 }
 
 @include a-variant($brand-primary);
 
 h1, h2, h3, h4, h5, h6 {
-   @include heading-font;
+  @include heading-font;
   //font-weight: 700;
 }
 
@@ -48,11 +52,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-.btn-xl {
-  @include button-variant($gray-darkest, $brand-primary, $brand-primary);
+.btn-dark {
+  @include button-variant(white, $gray-darkest, $gray-darkest);
   @include heading-font;
-  font-weight: 700;
-  border-radius: 3px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  border-radius: 0;
+  font-size: 18px;
+  padding: 20px 40px;
+}
+
+.btn-xl {
+  @include button-variant(white, transparent, white);
+  @include heading-font;
+  font-weight: lighter;
+  text-transform: uppercase;
+  border-radius: 0;
   font-size: 18px;
   padding: 20px 40px;
 }
@@ -60,101 +75,96 @@ h1, h2, h3, h4, h5, h6 {
 // Custom Navigation Bar
 
 .navbar-default {
-  background-color: $gray-darkest;
-  border-color: transparent;
-  .navbar-logo {
-    height: 40px;
-  }
-  .navbar-collapse {
-    border-color: fade(white, 2%);
-  }
-  .navbar-toggle {
-    background-color: $brand-primary;
-    border-color: $brand-primary;
-    .icon-bar {
-      background-color: white;
-    }
-    &:hover,
-    &:focus {
-      background-color: $brand-primary;
-    }
-  }
-  .nav {
-    li {
-      a {
-        @include body-font;
-        font-weight: 400;
-        letter-spacing: 1px;
-        color: white;
-        padding: 10px 10px;
-        &:hover {
-          color: $brand-primary;
-          outline: none;
-        }
-        &:focus {
-          color: white;
-        }
+
+  border: none;
+
+  $navbar-height: 50px;
+
+  background-color: $mo-dark-grey;
+  height: $navbar-height;
+
+  .navbar-header {
+
+    a {
+      height: $navbar-height;
+      line-height: 45px;
+      text-decoration: none;
+      color: white;
+      span {
+        vertical-align: -5px;
+        font-size:24px;
+        padding-top:50px;
+        padding-left:30px;
+      }
+      .navbar-logo {
+        height: $navbar-height - 16px;
+        padding-left: 0;
+        margin-left: 0;
       }
     }
   }
-  .navbar-nav>.active>a {
-    border-radius: 0;
-    color: $gray-darkest;
-    background-color: $brand-primary;
-  }
-  .navbar-nav>.active>a:hover,
-  .navbar-nav>.active>a:focus {
-    color: $gray-darkest;
-    background-color: darken($brand-primary, 10%);
-  }
+
+
+.navbar-collapse {
+ background-color: $mo-dark-grey;
 }
 
+//.navbar-toggle {
+//  background-color: $brand-primary;
+//  border-color: $brand-primary;
+//  .icon-bar {
+//    background-color: white;
+//  }
+//  &:hover,
+//  &:focus {
+//    background-color: $brand-primary;
+//  }
+//}
 
-@media(min-width:768px) {
-  .navbar-default {
-    background-color: $gray-darkest;
-    padding: 10px 0 10px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
-    border: none;
-    height: 120px;
-    @include navbar-animate();
-    .navbar-logo {
-      @include navbar-animate();
-      height: 90px;
+.navbar-nav {
+  li {
+    .active{
+      background-color: $mo-dark-grey;
+      color: $brand-primary;
     }
-    .navbar-nav {
-      @include navbar-animate();
-      margin-top: 53px;
-      li {
-        a {
-          line-height: 5px;
-        }
+    a {
+      @include body-font;
+      color: white;
+      &:hover {
+        color: $brand-primary;
+      }
+      &:focus {
+        color: $brand-primary;
       }
     }
-    .navbar-nav>.active>a {
-      border-radius: 3px;
-    }
-  }
-  .navbar-default.navbar-shrink {
-    background-color: $gray-darkest;
-    padding: 10px 0 10px 0;
-    height: 80px;
-    .navbar-logo {
-      height: 50px;
-    }
-    .navbar-nav {
-      margin-top: 20px;
-    }
   }
 }
+}
 
-header {
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: $mo-dark-grey;
+  color: $brand-primary;
+}
+
+.headerbkg {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  opacity: 0.3;
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
-  margin-top: 10px;
+  // margin-top: 10px;
+  @include background-cover;
+}
+
+header {
+  opacity: 1;
+  width: 100%;
+  background-repeat: none;
+  background-attachment: scroll;
+  background-position: center center;
+  margin-top: 45px;
   @include background-cover;
   text-align: center;
   color: white;
@@ -172,19 +182,21 @@ header {
       font-weight: 700;
       font-size: 30px;
       line-height: 30px;
-      color: $gray-darkest;
+      color: white;
       display: inline-block;
-      background-color: white;
       padding: 0 10px;
+      opacity: 1;
     }
-    .intro-heading::after { content:"\A"; display:block; }
+    .intro-heading::after {
+      content: "\A";
+      display: block;
+    }
     .btn {
       @include body-font;
       text-transform: uppercase;
     }
     .intro-para {
       color: white;
-      background-color: $gray;
       padding: 10px;
       max-width: 69%;
       margin-left: auto;
@@ -195,7 +207,7 @@ header {
       @include body-font();
     }
     q {
-      font-size: 18px;
+      font-size: 20px;
       color: white;
       display: inline-block;
       background-color: $gray-darkest;
@@ -204,34 +216,17 @@ header {
     }
   }
 }
-.front-header {
-  background-image: url($header-front);
-  .intro-heading {
-    margin-top: 50px;
-    margin-bottom: 100px;
-  }
-}
-.blog-header {
-  background-image: url($header-blog);
-}
 
-.post-header {
-  margin-top: -20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  span {
-    margin: 0 20px;
-    padding: 2px 0px;
-    background: $mo-dark-grey;
-    color: $brand-primary;
-    box-shadow: 5px 0 0 $mo-dark-grey, -5px 0 0 $mo-dark-grey;
-  }
+.tint {
+  display: block;
+  width: 100vw;
+  height: 250px;
+  background: rgba(0,0,0, 1);
 }
 
 @media(min-width:768px) {
+
   header {
-    margin-top: 80px;
     .intro-text {
       padding-top: 0px;
       padding-bottom: 0px;
@@ -248,15 +243,17 @@ header {
         font-size: 55px;
         line-height: 75px;
         margin-bottom: 50px;
+        white-space: nowrap;
       }
     }
   }
   .front-header {
-    .intro-text{
+    .intro-text {
       padding-bottom: 150px;
 
       .intro-heading {
         margin-top: 100px;
+
       }
     }
   }
@@ -269,10 +266,11 @@ header {
     span {
       margin: 0 20px;
       padding: 2px 0px;
-      background: $mo-dark-grey;
-      color: $brand-primary;
-      box-shadow: 5px 0 0 $mo-dark-grey, -5px 0 0 $mo-dark-grey;
+      color: white;
     }
+  }
+  .tint {
+    margin-top: 50px;
   }
 }
 
@@ -282,36 +280,33 @@ section {
   padding: 100px 0;
   h2.section-heading {
     display: inline-block;
-    color: white;
-    background-color: $mo-medium-grey;
+    color: $mo-dark-grey;
     padding: 0 0.3em;
-    font-size: 40px;
+    font-size: 52px;
+    font-weight: normal;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   h3.section-subheading {
-    font-size: 16px;
-    @include serif-font;
+    font-size: 18px;
     text-transform: none;
-    font-style: italic;
-    font-weight: 400;
+    margin-top: 0px;
     margin-bottom: 75px;
   }
 }
 
-@media(min-width:768px) {
+@media(min-width: 768px) {
   section {
     padding: 150px 0;
   }
 }
-
-
 
 // Footer
 
 footer {
   padding: 25px 0;
   text-align: center;
+  background-color: #FCFCFC;
   span.copyright {
     line-height: 40px;
     @include heading-font;
@@ -326,18 +321,24 @@ footer {
   }
 }
 
+footer.sticky {
+  position: absolute;
+  bottom: 0px;
+  width: 100%
+}
+
 // Social Buttons
 
 ul.social-buttons {
-  margin-bottom: 0;
+  margin: 0;
   li {
+    padding: 0;
     a {
       display: block;
       background-color: $gray-darkest;
       height: 40px;
       width: 40px;
-      border-radius: 100%;
-      font-size: 20px;
+      font-size: 30px;
       line-height: 40px;
       color: white;
       outline: none;
@@ -349,8 +350,29 @@ ul.social-buttons {
       &:active {
         background-color: $brand-primary;
         color: $gray-darkest;
+        text-decoration: none;
       }
     }
+  }
+
+  .twitter a {
+    background-color: #55acee;
+  }
+
+  .instagram a {
+    background-color: #125688;
+  }
+
+  .github a {
+    background-color: black;
+  }
+
+  .email a {
+    background-color: #ea4335;
+  }
+
+  .rss a {
+    background-color: #f26522;
   }
 }
 

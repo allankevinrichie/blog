@@ -7,24 +7,50 @@ layout: default
 
 
 <!-- Header image -->
-<header style="background-image: url(/img/home-main-header.jpg);">
-    <div class="container">
-        <div class="intro-text">
-            <div class="intro-heading"><span>{{ page.title }}</span></div>
-        </div>
-        <div class="post-header">
-          <span class="post-meta">{{ page.summary }}</span>
-        </div>
-    </div>
-</header>
+<figure class="tint">
+	{% if page.header %}
+	  <div class="headerbkg" style="background-image: url({{ page.header }});">
+	{% else %}
+	  <div class="headerbkg" style="background-image: url(/img/home-main-header.jpg);">
+	{% endif %}
+	  </div>
+	<header class="blog-top-header">
+	    <div class="container">
+	        <div class="intro-text">
+	            <div class="intro-heading"><span>{{ page.title }}</span></div>
+	        </div>
+	        <div class="post-header">
+	          <span class="post-meta">{{ page.summary }}</span>
+	        </div>
+	    </div>
+	</header>
+</figure>
 
 <article class="post-content">
-	{{ content }}
+  {% if page.demos %}
+  <div class="demos">
+    <h2>Demos</h2>
+    {% for demo in page.demos %}
+    <div class="col-md-4 demo">
+      <a href="{{ demo.demo-url }}">
+        <img src="{{ demo.thumb }}" alt="{{ demo.name }} Screenshot" title="{{ demo.description }}" /><br />
+        {{ demo.name }}
+      </a><br />
+      <a href="{{ demo.git-url }}"><i class="fa fa-github"></i> source code</a><br />
+      <span class="date">{{ demo.date }}</span><br />
+      <span class="description">{{ demo.description }}</span>
+    </div>
+  	{% endfor %}
+    <div class="clearfix"></div>
+  </div>
+	{% endif %}
+
+    {{ content }}
 
 	{% assign project_concept_notes = site.concept-notes | where: "project", page.project %}
 	{% assign project_posts = site.posts | where: "project", page.project %}
 	{% if project_concept_notes.size > 0 or project_posts.size > 0 %}
-	<h3>Related links</h3>
+	<!-- <h3>Related links</h3> -->
 	{% endif %}
 
 	{% if project_concept_notes.size > 0 %}
