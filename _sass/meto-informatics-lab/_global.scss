@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   border-radius: 0;
   font-size: 18px;
-  padding: 20px 40px;
+  padding: 15px 30px;
 }
 
 .btn-xl {
@@ -69,16 +69,25 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   border-radius: 0;
   font-size: 18px;
-  padding: 20px 40px;
+  padding: 15px 30px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    // color: $mo-green;
+    background-color: white;
+    color: $mo-dark-grey;
+  }
 }
 
 // Custom Navigation Bar
 
+$navbar-height: 50px;
 .navbar-default {
 
   border: none;
 
-  $navbar-height: 50px;
 
   background-color: $mo-dark-grey;
   height: $navbar-height;
@@ -90,55 +99,80 @@ h1, h2, h3, h4, h5, h6 {
       line-height: 45px;
       text-decoration: none;
       color: white;
-      span {
-        vertical-align: -5px;
-        font-size:24px;
-        padding-top:50px;
-        padding-left:30px;
-      }
       .navbar-logo {
-        height: $navbar-height - 16px;
-        padding-left: 0;
+        height: $navbar-height - 18px;
+        padding-top: 4px;
+        padding-left: 5px;
         margin-left: 0;
       }
-    }
-  }
-
-
-.navbar-collapse {
- background-color: $mo-dark-grey;
-}
-
-//.navbar-toggle {
-//  background-color: $brand-primary;
-//  border-color: $brand-primary;
-//  .icon-bar {
-//    background-color: white;
-//  }
-//  &:hover,
-//  &:focus {
-//    background-color: $brand-primary;
-//  }
-//}
-
-.navbar-nav {
-  li {
-    .active{
-      background-color: $mo-dark-grey;
-      color: $brand-primary;
-    }
-    a {
-      @include body-font;
-      color: white;
-      &:hover {
-        color: $brand-primary;
-      }
-      &:focus {
-        color: $brand-primary;
+      .navbar-title {
+        font-size: 18px;
+        padding-left: 0px;
+        vertical-align: -6px;
+        padding-top:50px;
+        padding-left:0px;
       }
     }
   }
+
+  .navbar-collapse {
+   background-color: $mo-dark-grey;
+  }
+
+  .navbar-toggle {
+    border: none;
+  }
+  //  background-color: $brand-primary;
+  //  border-color: $brand-primary;
+  //  .icon-bar {
+  //    background-color: white;
+  //  }
+  //  &:hover,
+  //  &:focus {
+  //    background-color: $brand-primary;
+  //  }
+  //}
+
+  .navbar-nav {
+    li {
+      .active{
+        background-color: $mo-dark-grey;
+        color: $brand-primary;
+      }
+      a {
+        @include body-font;
+        color: white;
+        &:hover {
+          color: $brand-primary;
+        }
+        &:focus {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
 }
+
+
+@media(min-width: 768px) {
+
+  .navbar-default {
+    .navbar-header {
+
+      a {
+        .navbar-logo {
+          height: $navbar-height - 16px;
+          padding-left: 0;
+          margin-left: 0;
+        }
+        .navbar-title {
+          font-size: 24px;
+          padding-top: 4px;
+          padding-left: 15px;
+        }
+      }
+    }
+  }
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -179,7 +213,7 @@ header {
     }
     .intro-heading {
       @include heading-font;
-      font-weight: 700;
+      font-weight: 200;
       font-size: 30px;
       line-height: 30px;
       color: white;
@@ -239,7 +273,6 @@ header {
       }
       .intro-heading {
         @include heading-font;
-        font-weight: 200;
         font-size: 55px;
         line-height: 75px;
         margin-bottom: 50px;
@@ -252,7 +285,8 @@ header {
       padding-bottom: 150px;
 
       .intro-heading {
-        margin-top: 100px;
+        margin-top: 150px;
+        margin-bottom: 0px;
 
       }
     }
@@ -277,7 +311,7 @@ header {
 // Global Section Styles
 
 section {
-  padding: 100px 0;
+  padding: 75px 0;
   h2.section-heading {
     display: inline-block;
     color: $mo-dark-grey;
@@ -288,16 +322,20 @@ section {
     margin-bottom: 10px;
   }
   h3.section-subheading {
+    font-weight: 200;
     font-size: 18px;
+    color: $mo-dark-grey;
     text-transform: none;
     margin-top: 0px;
-    margin-bottom: 75px;
+    margin-bottom: 55px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px darken($gray-lighter, 20%);
   }
 }
 
 @media(min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 75px 0;
   }
 }
 
@@ -405,4 +443,20 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: $brand-primary;
+}
+
+@media (min-width: 1200px) {
+  article {
+      max-width: 1170px;
+  }
+}
+@media (min-width: 992px) {
+  article {
+      max-width: 970px;
+  }
+}
+@media (min-width: 768px) {
+  article {
+      max-width: 750px;
+  }
 }

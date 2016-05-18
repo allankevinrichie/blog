@@ -101,8 +101,6 @@
 
   @media(min-width:768px) {
     .container {
-      padding-left: 10%;
-      padding-right: 10%;
     }
   }
 
@@ -113,13 +111,13 @@
 
 #projects {
 
+  padding-bottom: 0px;
+
   @include a-variant(black);
 
   .container {
-    padding-left: 10%;
-    padding-right: 10%;
   }
-  
+
   .project-item {
     margin: 0 0 15px;
     right: 0;
@@ -170,38 +168,6 @@
   }
 }
 
-// Team Section
-
-.team-member {
-  text-align: center;
-  margin-bottom: 50px;
-  @include a-variant($gray-darkest);
-  .mugshot {
-    margin: 0 auto;
-    border: 7px solid $mo-light-grey;
-    height: 200px;
-    width: 200px;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-    cursor: pointer;
-  }
-  .summary {
-    height: 5em;
-    overflow: none;
-  }
-  h4 {
-    padding: 0.1em 0.5em;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    text-transform: none;
-    font-size: 24px;
-  }
-  p {
-    margin-top: 0;
-  }
-}
-
 // Clients Aside
 
 aside.clients {
@@ -216,6 +182,11 @@ section#contact {
   padding: 100px 0;
   position: relative;
   height: 100%;
+
+
+  h3.section-subheading {
+    border-bottom: none;
+  }
 
   .background {
     background-position: center;
