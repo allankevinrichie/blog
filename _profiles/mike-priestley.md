@@ -3,6 +3,7 @@ title: Mike Priestley
 layout: profile
 name: Mike Priestley
 affiliation: Intern
+summary: enjoys computers and the sky
 email: mike-priestley@informaticslab.co.uk
 twitter: http://www.twitter.com/CookTheSmog
 mugshot: https://images.informaticslab.co.uk/profiles/originals/mike-priestley.jpg
